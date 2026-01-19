@@ -1,183 +1,204 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SenzTech DSS - Laporan</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  background: linear-gradient(135deg,#6a7be6,#7a5fb2);
-  min-height:100vh;
-}
-.navbar{
-  background:#fff;
-  padding:14px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.navbar .logo{
-  color:#5a6ff0;
-  font-weight:700;
-  font-size:18px;
-}
-.navbar ul{
-  list-style:none;
-  display:flex;
-  gap:18px;
-}
-.navbar a{
-  text-decoration:none;
-  color:#333;
-  font-size:14px;
-  padding:6px 10px;
-}
-.navbar .active{
-  background:#5a6ff0;
-  color:#fff;
-  border-radius:6px;
-}
+  <meta charset="UTF-8">
+  <title>SenzTech DSS - Data Proyek</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
 
-.wrapper{
-  max-width:980px;
-  margin:36px auto;
-  background:#fff;
-  border-radius:18px;
-  padding:28px 30px 24px;
-}
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #5f6ee4, #7b4fa3);
+    }
 
-h2{
-  color:#5a6ff0;
-  margin-bottom:22px;
-  font-size:20px;
-}
+    /* Navbar */
+    .navbar {
+      background: #f9fbff;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    }
 
-.panel{
-  background:linear-gradient(135deg,#f4f6ff,#faf5ff);
-  border:1px solid #e3e7ff;
-  border-left:4px solid #5a6ff0;
-  border-radius:14px;
-  padding:18px 20px;
-  margin-bottom:16px;
-}
+    .brand {
+      font-size: 20px;
+      font-weight: 700;
+      color: #5f6ee4;
+    }
 
-.panel h3{
-  color:#5a6ff0;
-  font-size:15px;
-  margin-bottom:12px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
+    .menu a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #333;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:1fr auto;
-  row-gap:8px;
-  column-gap:12px;
-  font-size:13.5px;
-}
-.grid span{color:#333}
-.grid strong{color:#111}
+    .menu a.active {
+      background: #5f6ee4;
+      color: #fff;
+    }
 
-.sub-title{
-  margin-top:14px;
-  margin-bottom:6px;
-  color:#5a6ff0;
-  font-size:13.5px;
-  font-weight:600;
-}
+    /* Content */
+    .wrapper {
+      padding: 40px;
+    }
 
-ul{
-  padding-left:18px;
-  font-size:13.5px;
-}
-ul li{margin-bottom:6px}
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px 32px;
+    }
 
-.footer{
-  margin-top:8px;
-  padding-top:10px;
-  border-top:1px dashed #e0e0e0;
-  text-align:center;
-  font-size:12px;
-  color:#777;
-}
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
 
-.btn{
-  margin-top:18px;
-  background:#10b981;
-  color:#fff;
-  border:none;
-  padding:10px 20px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-}
-</style>
+    .card-header h2 {
+      color: #5f6ee4;
+      font-size: 22px;
+    }
+
+    .btn-add {
+      background: #5f6ee4;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      text-align: left;
+      font-size: 13px;
+      color: #5f6ee4;
+      padding: 12px 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    tbody td {
+      padding: 14px 10px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    .btn-edit {
+      background: #f59e0b;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 6px;
+      font-size: 12px;
+    }
+
+    .btn-delete {
+      background: #ef4444;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="navbar">
-  <div class="logo">🚀 SenzTech DSS</div>
-  <ul>
-    <li><a href="#">Dashboard</a></li>
-    <li><a href="#">Data Proyek</a></li>
-    <li><a href="#">Manajemen SDM</a></li>
-    <li><a href="#">Prediksi & Analisis</a></li>
-    <li><a href="#" class="active">Laporan</a></li>
-  </ul>
-</div>
-
-<div class="wrapper">
-  <h2>Laporan & Statistik</h2>
-
-  <div class="panel">
-    <h3>📈 Laporan Data Proyek</h3>
-    <div class="grid">
-      <span>Total Proyek (Keseluruhan):</span><strong>79 proyek</strong>
-      <span>Rata-rata Proyek per Bulan:</span><strong>9.9 proyek</strong>
-      <span>Bulan Tertinggi:</span><strong>Juli 2025 (13 proyek)</strong>
-      <span>Bulan Terendah:</span><strong>Maret 2025 (7 proyek)</strong>
+  <div class="navbar">
+    <div class="brand">🚀 SenzTech DSS</div>
+    <div class="menu">
+      <a href="#">Dashboard</a>
+      <a href="#" class="active">Data Proyek</a>
+      <a href="#">Manajemen SDM</a>
+      <a href="#">Prediksi & Analisis</a>
+      <a href="#">Laporan</a>
     </div>
   </div>
 
-  <div class="panel">
-    <h3>👥 Laporan SDM</h3>
-    <div class="grid">
-      <span>Total SDM:</span><strong>6 orang</strong>
-      <span>SDM Aktif:</span><strong>5 orang</strong>
-      <span>SDM Cuti:</span><strong>1 orang</strong>
-      <span>SDM Tidak Aktif:</span><strong>0 orang</strong>
+  <div class="wrapper">
+    <div class="card">
+      <div class="card-header">
+        <h2>Data Proyek</h2>
+        <button class="btn-add">+ Tambah Proyek</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>BULAN</th>
+            <th>TAHUN</th>
+            <th>JUMLAH PROYEK</th>
+            <th>AKSI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Januari</td>
+            <td>2025</td>
+            <td>8</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Hapus</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Februari</td>
+            <td>2025</td>
+            <td>10</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Hapus</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Maret</td>
+            <td>2025</td>
+            <td>7</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Hapus</button>
+            </td>
+          </tr>
+          <tr>
+            <td>April</td>
+            <td>2025</td>
+            <td>12</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Hapus</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mei</td>
+            <td>2025</td>
+            <td>9</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Hapus</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <div class="sub-title">Distribusi Posisi:</div>
-    <ul>
-      <li>Developer: <strong>2 orang</strong></li>
-      <li>Designer: <strong>1 orang</strong></li>
-      <li>Project Manager: <strong>1 orang</strong></li>
-      <li>QA Tester: <strong>1 orang</strong></li>
-      <li>DevOps: <strong>1 orang</strong></li>
-    </ul>
   </div>
-
-  <div class="panel">
-    <h3>💡 Insight & Rekomendasi</h3>
-    <ul>
-      <li>Tren proyek menunjukkan fluktuasi tinggi dalam 8 bulan terakhir</li>
-      <li>Kapasitas SDM saat ini: 5 orang aktif</li>
-      <li>Rasio SDM per proyek rata-rata: 0.51 orang/proyek</li>
-      <li>⚠️ Pertimbangkan penambahan SDM untuk mengoptimalkan kinerja</li>
-    </ul>
-  </div>
-
-  <div class="footer">
-    Laporan ini di-generate pada: 19/1/2026, 23:18:35
-  </div>
-
-  <button class="btn">📄 Generate Laporan</button>
-</div>
 
 </body>
 </html>
